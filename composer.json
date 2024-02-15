@@ -1,9 +1,9 @@
 {
-    "name": "hcodebr/ecommerce",
+    "name": "fcrbr/ecommerce",
     "authors": [
         {
-            "name": "Hcode Treinamentos",
-            "email": "suporte@hcode.com.br"
+            "name": "Filipe Correa Rodrigues",
+            "email": "filipecr@gmail.com"
         }
     ],
     "require": {
