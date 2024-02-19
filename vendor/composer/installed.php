@@ -3,7 +3,7 @@
         'name' => 'fcrbr/ecommerce',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'dd3d1e1f35a191dff647a0d2db927651fa1571b8',
+        'reference' => '36d2fa5cc04336b822481f9af5665cc5ffc1df55',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'fcrbr/ecommerce' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'dd3d1e1f35a191dff647a0d2db927651fa1571b8',
+            'reference' => '36d2fa5cc04336b822481f9af5665cc5ffc1df55',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

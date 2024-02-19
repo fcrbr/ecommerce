@@ -2,7 +2,7 @@
     "name": "fcrbr/ecommerce",
     "authors": [
         {
-            "name": "Filipe Correa Rodrigues",
+            "name": "Fcr Dev in Sync",
             "email": "filipecr@gmail.com"
         }
     ],
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "": "vendor\\hcodebr\\php-classes\\src"
+            "Hcode\\": "vendor\\hcodebr\\php-classes\\src"
         }
     }
 }
