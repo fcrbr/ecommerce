@@ -1,46 +1,62 @@
-<?php
-
+<?php 
+session_start();
 require_once("vendor/autoload.php");
+require_once("functions.php");
 
-// Configurações de exibição de erros
-//ini_set('display_errors', 1);
-//ini_set('display_startup_errors', 1);
-//error_reporting(E_ALL);
+use Hcode\Model\User;
 
-use \Slim\Slim;
-use \Hcode\Page;
-use \Hcode\PageAdmin;
-
-
-$app = new Slim();
-
-
-use Hcode\DB\Sql;
+$app = new \Slim\Slim();
 
 $app->config('debug', true);
 
 $app->get('/', function() {
-$page = new Page();
-$page->setTpl("index");
-
-});
-
-
-
-$app->get('/admin', function() {
     
-
-	$page = new PageAdmin();
+	$page = new Hcode\Page();
 
 	$page->setTpl("index");
 
 });
 
-$app->get('/test', function() use ($app) {
-   // $app->log->debug("Test route accessed");
-    echo "Test route";
+$app->get('/admin', function() {
+    
+	User::verifyLogin();
+
+	$page = new Hcode\PageAdmin();
+
+	$page->setTpl("index");
+
+});
+
+$app->get('/admin/login', function() {
+    
+	$page = new Hcode\PageAdmin([
+		"header"=>false,
+		"footer"=>false
+	]);
+
+	$page->setTpl("login");
+
+});
+
+$app->post('/admin/login', function() {
+
+	User::login($_POST["login"], $_POST["password"]);
+
+	header("Location: /ecommerce/admin");
+	exit;
+
 });
 
 
+$app->get('/admin/logout', function() {
+
+	User::logout();
+
+	header("Location: /ecommerce/admin/login");
+	exit;
+
+});
+
 $app->run();
-?>
+
+ ?>

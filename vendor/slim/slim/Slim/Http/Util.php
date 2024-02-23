@@ -54,6 +54,9 @@ class Util
      * @var    array|string    $rawData
      * @return array|string
      */
+
+/*
+alteração pela função filipe descontinuada PHP > 7.3 stripSlashesIfMagicQuotes
     public static function stripSlashesIfMagicQuotes($rawData, $overrideStripSlashes = null)
     {
         $strip = is_null($overrideStripSlashes) ? get_magic_quotes_gpc() : $overrideStripSlashes;
@@ -63,6 +66,22 @@ class Util
             return $rawData;
         }
     }
+*/
+
+
+public static function stripSlashesIfMagicQuotes($value)
+{
+    if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
+        return self::stripSlashes($value);
+    }
+
+    return $value;
+}
+
+
+
+
+
 
     /**
      * Strip slashes from string or array
